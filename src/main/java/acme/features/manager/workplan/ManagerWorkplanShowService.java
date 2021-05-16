@@ -89,7 +89,7 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		
 		final StringBuilder validTaskIds = new StringBuilder();
 		Collection<String> taskIdsCollection;
-		if(entity.getIsPublic()) {
+		if(Boolean.TRUE.equals(entity.getIsPublic())) {
 			taskIdsCollection = this.repository.findValidTasksPublicWorkPlan(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
 		} else {
 			taskIdsCollection = this.repository.findValidTasks(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
