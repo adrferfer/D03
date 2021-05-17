@@ -113,7 +113,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		
 		final StringBuilder validTaskIds = new StringBuilder();
 		Collection<String> taskIdsCollection;
-		if(entity.getIsPublic()) {
+		if(Boolean.TRUE.equals(entity.getIsPublic())) {
 			taskIdsCollection = this.repository.findValidTasksPublicWorkPlan(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
 		} else {
 			taskIdsCollection = this.repository.findValidTasks(entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd(), entity.getOwner().getId());
@@ -219,7 +219,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 						tasksOutsidePeriod.append(taskId);
 					}
 					
-					if(!this.repository.taskIsPublic(taskId) && entity.getIsPublic()) {
+					if(!this.repository.taskIsPublic(taskId) && Boolean.TRUE.equals(entity.getIsPublic())) {
 						if (!privateTasks.toString().isEmpty()) {
 							privateTasks.append(", ");
 						} else {
@@ -248,7 +248,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			}
 		}
 		
-		if(entity.getIsPublic()) {
+		if(Boolean.TRUE.equals(entity.getIsPublic())) {
 			final SpamModule sm = new SpamModule(this.spamRepository);
 			
 			final SpamModuleResult spamResult = sm.checkSpam(entity);
