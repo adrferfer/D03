@@ -206,26 +206,25 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 							hasTasksNowOwned = true;
 						}
 						tasksNotOwned.append(taskId);
-						continue;
-					}
-					
-					final boolean boundaries = !this.repository.taskIsInsideExecutionPeriod(taskId, entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd());
-					if(boundaries) {
-						if (!tasksOutsidePeriod.toString().isEmpty()) {
-							tasksOutsidePeriod.append(", ");
-						} else {
-							hasTasksOutsidePeriod = true;
+					} else {
+						final boolean boundaries = !this.repository.taskIsInsideExecutionPeriod(taskId, entity.getExecutionPeriodStart(), entity.getExecutionPeriodEnd());
+						if(boundaries) {
+							if (!tasksOutsidePeriod.toString().isEmpty()) {
+								tasksOutsidePeriod.append(", ");
+							} else {
+								hasTasksOutsidePeriod = true;
+							}
+							tasksOutsidePeriod.append(taskId);
 						}
-						tasksOutsidePeriod.append(taskId);
-					}
-					
-					if(!this.repository.taskIsPublic(taskId) && Boolean.TRUE.equals(entity.getIsPublic())) {
-						if (!privateTasks.toString().isEmpty()) {
-							privateTasks.append(", ");
-						} else {
-							hasPrivateTasks = true;
+						
+						if(!this.repository.taskIsPublic(taskId) && Boolean.TRUE.equals(entity.getIsPublic())) {
+							if (!privateTasks.toString().isEmpty()) {
+								privateTasks.append(", ");
+							} else {
+								hasPrivateTasks = true;
+							}
+							privateTasks.append(taskId);
 						}
-						privateTasks.append(taskId);
 					}
 				}
 			}
