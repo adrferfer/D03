@@ -23,21 +23,21 @@
 	
 	<bean id="shout1" class="acme.entities.shouts.Shout">
 		<property name="moment" value="2021/04/26 11:00" />
-		<property name="author" value="Shirou Emiya" />
+		<property name="author" value="PATATAShirou Emiya" />
 		<property name="text" value="People die if they're killed..." />
 		<property name="info"><null/></property>
 	</bean>
 	
 	<bean id="shout2" class="acme.entities.shouts.Shout">
 		<property name="moment" value="2021/04/25 1:00" />
-		<property name="author" value="Yui Hirasawa" />
+		<property name="author" value="patataYui Hirasawa" />
 		<property name="text" value="Fun things are fun." />
 		<property name="info" value="https://en.wikipedia.org/wiki/Fun" />	
 	</bean>
 	
 	<bean id="shout3" class="acme.entities.shouts.Shout">
 		<property name="moment" value="2021/04/20 11:00" />
-		<property name="author" value="Tsubasa Hanekawa" />
+		<property name="author" value="patataTsubasa Hanekawa" />
 		<property name="text" value="I just know what I know." />
 	<property name="info"><null/></property>
 	</bean>

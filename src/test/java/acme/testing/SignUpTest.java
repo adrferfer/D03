@@ -20,8 +20,8 @@ public class SignUpTest extends AcmePlannerTest{
 
 	/* positiveSingUp
 	 *   Caso positivo de inscribir a varios usuarios nuevos al sistema correctamente y se inicia sesión con cada uno de ellos.
-	 *   Se espera que cada usuario se inscriba correctamente e inicie sesión.
 	 *   No se infringe ninguna restricción.
+	 *   Se espera que cada usuario se inscriba correctamente e inicie sesión.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -32,6 +32,12 @@ public class SignUpTest extends AcmePlannerTest{
 		super.signOut();
 	}
 	
+	
+	/* negativeSingUp
+	 *   Caso negativo de inscribir a un usuario en el sistema.
+	 *   Las restricciones que se infringen son las de parámetros vacios y que no se han aceptado los términos.
+	 *   Se espera que salten los mensajes de error, y que el usuario no se inscriba.
+	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
@@ -39,6 +45,7 @@ public class SignUpTest extends AcmePlannerTest{
 		this.signUpNegative(username, password, name, surname, email);
 	}
 	
+	// Método privado para probar el log in fallido, los parámetros son string vacíos
 	private void signUpNegative(final String username, final String password, final String name, final String surname, final String email) {		
 		super.navigateHome();
 		super.clickOnMenu("Sign up", null);
