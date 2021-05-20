@@ -23,15 +23,15 @@ public class SignUpTest extends AcmePlannerTest{
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que cada usuario se inscriba correctamente e inicie sesión.
 	 * */
-	@ParameterizedTest
-	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
-	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
-		super.signUp(username, password, name, surname, email);
-		super.signIn(username, password);
-		super.signOut();
-	}
-	
+//	@ParameterizedTest
+//	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+//	@Order(10)
+//	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
+//		super.signUp(username, password, name, surname, email);
+//		super.signIn(username, password);
+//		super.signOut();
+//	}
+//	
 	
 	/* negativeSingUp
 	 *   Caso negativo de inscribir a un usuario en el sistema.
