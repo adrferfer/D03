@@ -1,6 +1,7 @@
 package acme.testing.anonymous.shout;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -9,6 +10,12 @@ import acme.testing.AcmePlannerTest;
 
 public class AnonymousShoutListTest extends AcmePlannerTest {
 	
+	/* listPositive
+	 *   Caso positivo de listar gritos.
+	 *   No se infringe ninguna restricción.
+	 *   Se espera que se muestre el listado, se comprueban los valores de las columnas y se navega al show, 
+	 *   	comprobando los atributos correctamente.
+	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -27,12 +34,25 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("info", info);
 	}
 	
-//	@Test
-//	@Order(20)
-//	public void listNegative() {
-//		super.signIn("administrator", "administrator");
-//		
-//		super.
-//	}
+	/* listNegative
+	 *   Caso negativo de listar gritos.
+	 *   Se infringe restricción de acceso no autorizado.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar acceder al listado.
+	 * */
+    @Test
+    @Order(20)
+    public void listNegative() {
+        super.clickOnMenu("Anonymous", "Shouts list");
+        
+        final String currentUrl = super.getCurrentUrl();
+        
+        super.signIn("administrator","administrator"); //Logueamos como authenticated para hacer saltar el panic de acceso no autorizado.
+        
+        super.navigate(currentUrl,null);
+
+        super.checkPanicExists();
+        
+        super.signOut();
+    }
 
 }
