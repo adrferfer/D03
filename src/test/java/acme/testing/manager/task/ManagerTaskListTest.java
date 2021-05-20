@@ -1,4 +1,4 @@
-package acme.testing.authenticated.task;
+package acme.testing.manager.task;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -8,22 +8,22 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.AcmePlannerTest;
 
 
-public class AuthenticatedTaskListTest extends AcmePlannerTest {
+public class ManagerTaskListTest extends AcmePlannerTest {
 
 	/* listPositive
-	 *   Caso positivo de listar tareas como usuario autentificado.
+	 *   Caso positivo de listar tareas como gerente autentificado.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que las tareas se muesten correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
-	@CsvFileSource(resources = "/authenticated/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/manager/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void listPositive(final int recordIndex, final String taskId, final String title, final String startMoment,
 		final String endMoment, final String workloadHours, final String workloadFraction, final String description, final String link,
-		final String ownerName1, final String ownerName2) {
-		super.signIn("administrator", "administrator");
+		final String isPublic) {
+		super.signIn("manager01", "manager01");
 		
-		super.clickOnMenu("Authenticated", "Finished tasks list");
+		super.clickOnMenu("Manager", "Tasks list");
 			
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, startMoment);
@@ -40,10 +40,7 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("workloadFraction", workloadFraction);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
-		
-		final String ownerName = ownerName1+", "+ownerName2;
-		
-		super.checkInputBoxHasValue("ownerName", ownerName);	
+		super.checkInputBoxHasValue("isPublic", isPublic);
 		
 		super.signOut();
 	}
@@ -56,8 +53,8 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 	@Test
 	@Order(20)
 	public void listNegative() {
-		super.signIn("administrator", "administrator");
-		super.clickOnMenu("Authenticated", "Finished tasks list");
+		super.signIn("manager01", "manager01");
+		super.clickOnMenu("Manager", "Tasks list");
 		
 		final String currentUrl = super.getCurrentUrl();
 		
