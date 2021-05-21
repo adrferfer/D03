@@ -14,6 +14,7 @@ public class AnonymousWorkplanShowTest extends AcmePlannerTest {
 	 *   Caso positivo de mostrar un plan de trabajo.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que se muestre el plan de trabajo, comprobando los atributos correctamente.
+	 *   Se comprueba la navegabilidad a las tareas asociadas al plan de trabajo
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)

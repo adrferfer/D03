@@ -8,17 +8,18 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import acme.testing.AcmePlannerTest;
 
 
-public class ManagerWorkplanListTest extends AcmePlannerTest {
+public class ManagerWorkplanShowTest extends AcmePlannerTest {
 
-	/* listPositive
-	 *   Caso positivo de listar planes de trabajo como gerente autentificado.
+	/* showPositive
+	 *   Caso positivo de mostrar un plan de trabajo como gerente autentificado y navegar a sus tasks.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que los planes de trabajo se muestren correctamente y se comprueben los atributos.
+	 *   Se espera que el plan de trabajo se muestre correctamente y se comprueben los atributos.
+	 *   Se comprueba la navegabilidad a las tareas asociada al plan de trabajo
 	 * */
 	@ParameterizedTest
-	@CsvFileSource(resources = "/manager/workplan/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/manager/workplan/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void listPositive(final int recordIndex, final String title, final String suggestion, final String executionPeriodStart,
+	public void showPositive(final int recordIndex, final String title, final String suggestion, final String executionPeriodStart,
 		final String executionPeriodEnd, final String workload, final String validTaskIds, final String modelTasks, final String isPublic) {
 		super.signIn("manager01", "manager01");
 		
@@ -40,6 +41,10 @@ public class ManagerWorkplanListTest extends AcmePlannerTest {
 		super.checkInputBoxHasValue("modelTasks", modelTasks);
 		super.checkInputBoxHasValue("isPublic", isPublic);
 		
+		//Comprobamos que podemos visualizar las tareas del plan de trabajo
+		super.clickOnReturnButton("Tasks");
+		super.clickOnListingRecord(0); //visualizamos una de ellas
+		
 		super.signOut();
 	}
 	
@@ -50,17 +55,19 @@ public class ManagerWorkplanListTest extends AcmePlannerTest {
 	 * */
 	@Test
 	@Order(20)
-	public void listNegative() {
+	public void showNegative() {
 		super.signIn("manager01", "manager01");
 		super.clickOnMenu("Manager", "Workplans list");
 		
+		super.clickOnListingRecord(0);
+		
 		final String currentUrl = super.getCurrentUrl();
 		
-		super.signOut(); //Deslogueamos para hacer saltar el panic al acceder al listado desde anónimo
+		super.signOut(); // Deslogueamos para hacer saltar el panic al acceder al listado desde anónimo
 		
 		super.navigate(currentUrl,null);
 
-		super.checkPanicExists();		
+		super.checkPanicExists(); // Acceso no autorizado		
 	}
 	
 	
