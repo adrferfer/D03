@@ -90,7 +90,9 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 		
 		super.clickOnSubmitButton("Update");
 		
-		super.checkErrorsExist();		
+		super.checkErrorsExist();	
+		
+		super.signOut();
 	}
 	
 	

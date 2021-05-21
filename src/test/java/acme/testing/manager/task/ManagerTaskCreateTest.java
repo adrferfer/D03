@@ -60,7 +60,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 	
 	/* createNegative
 	 *   Caso negativo de crear una tarea con errores.
-	 *   Las restricciones que se infrinjen son fecha de fin anterior a la de inicio,
+	 *   Las restricciones que se infringen son fecha de fin anterior a la de inicio,
 	 *   carga de trabajo con valor negativo, spam y valor de carga de trabajo y fracción de trabajo vacíos.
 	 *   Se espera que salten los mensajes de error, y que no se creen las tareas.
 	 * */
@@ -86,7 +86,9 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 		
 		super.clickOnSubmitButton("Create");
 		
-		super.checkErrorsExist();		
+		super.checkErrorsExist();	
+		
+		super.signOut();
 	}
 	
 	
