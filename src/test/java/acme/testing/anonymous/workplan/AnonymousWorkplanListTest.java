@@ -11,10 +11,10 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousWorkplanListTest extends AcmePlannerTest {
 	
 	/* listPositive
-	 *   Caso positivo de listar tareas.
+	 *   Caso positivo de listar planes de trabajo.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que se muestre el listado, se comprueban los valores de las columnas y se navega al show, 
-	 *   	comprobando los atributos correctamente.
+	 *   	comprobando los atributos correctamente. Se comprueba la navegabilidad a las tareas asociadas de cada plan de trabajo
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -22,7 +22,7 @@ public class AnonymousWorkplanListTest extends AcmePlannerTest {
 	public void listPositive(final int recordIndex, final String title, final String executionPeriodStart, final String executionPeriodEnd, 
 		final String workload, final String isPublic) {
 		
-		super.clickOnMenu("Anonymous", "Workplans list");
+		super.clickOnMenu("Anonymous", "Workplan list");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, executionPeriodStart);
@@ -52,7 +52,7 @@ public class AnonymousWorkplanListTest extends AcmePlannerTest {
     @Test
     @Order(20)
     public void listNegative() {
-        super.clickOnMenu("Anonymous", "Workplans list");
+        super.clickOnMenu("Anonymous", "Workplan list");
         
         final String currentUrl = super.getCurrentUrl();
         
