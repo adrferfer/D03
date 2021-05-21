@@ -66,7 +66,7 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest {
 	
 	/* deleteNegative
 	 *   Caso negativo de eliminar una tarea.
-	 *   La restricción que se infrinje es intentar acceder a las task siendo anónimo
+	 *   La restricción que se infringe es intentar acceder a las task siendo anónimo
 	 *   para borrarlas, siendo solo el propietario el que las puede borrar.
 	 *   Se espera que salte un error de acceso no permitido y que no se pueda acceder.
 	 * */
