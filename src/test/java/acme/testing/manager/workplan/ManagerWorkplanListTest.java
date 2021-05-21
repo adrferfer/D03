@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerWorkplanListTest extends AcmePlannerTest {
 
 	/* listPositive
-	 *   Caso positivo de listar tareas como gerente autentificado.
+	 *   Caso positivo de listar planes de trabajo como gerente autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que las tareas se muesten correctamente y se comprueben los atributos.
+	 *   Se espera que los planes de trabajo se muesten correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
