@@ -21,7 +21,6 @@ public class AnonymousWorkplanListTest extends AcmePlannerTest {
 	@Order(10)
 	public void listPositive(final int recordIndex, final String title, final String executionPeriodStart, final String executionPeriodEnd, 
 		final String workload, final String isPublic) {
-		
 		super.clickOnMenu("Anonymous", "Workplan list");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);
