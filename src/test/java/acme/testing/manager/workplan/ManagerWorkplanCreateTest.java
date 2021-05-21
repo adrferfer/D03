@@ -9,16 +9,15 @@ import acme.testing.AcmePlannerTest;
 
 public class ManagerWorkplanCreateTest extends AcmePlannerTest {
 
-	/* showPositive
-	 *   Caso positivo de mostrar un plan de trabajo como gerente autentificado y navegar a sus tasks.
+	/* createPositive
+	 *   Caso positivo de crear un plan de trabajo como gerente autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que el plan de trabajo se muestre correctamente y se comprueben los atributos.
-	 *   Se comprueba la navegabilidad a las tareas asociada al plan de trabajo
+	 *   Se espera que el plan de trabajo se cree correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void showPositive(final int recordIndex, final String title, final String executionPeriodStart, final String executionPeriodEnd, final String isPublic) {
+	public void createPositive(final int recordIndex, final String title, final String executionPeriodStart, final String executionPeriodEnd, final String isPublic) {
 		super.signIn("manager01", "manager01");
 		
 		super.clickOnMenu("Manager", "Create workplan");
@@ -45,7 +44,34 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest {
 		super.signOut();
 	}
 	
-	//TODO: NEGATIVE SHOWs 
+	/* createNegative
+	 *   Caso negativo de crear un plan de trabajo como gerente autentificado.
+	 *   Restricciones infringidas:
+	 *   	- Parámetros vacíos (NotBlank).
+	 *   	- Fecha executionPeriodEnd anterior que executionPeriodStart.
+	 *   	- Fechas con formato no adecuado.
+	 *   Se espera que se capturen los errores y no se cree el plan de trabajo.
+	 * */
+	@ParameterizedTest
+	@CsvFileSource(resources = "/manager/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(20)
+	public void createNegative(final int recordIndex, final String title, final String executionPeriodStart, final String executionPeriodEnd) {
+		super.signIn("manager01", "manager01");
+		
+		super.clickOnMenu("Manager", "Create workplan");
+		
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("executionPeriodStart", executionPeriodStart);
+		super.fillInputBoxIn("executionPeriodEnd", executionPeriodEnd);
+		
+		super.clickOnSubmitButton("Create");
+		
+		super.checkErrorsExist();
+		
+		super.signOut();
+	}
+	
+	
 	
 	
 }

@@ -86,7 +86,9 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 		
 		super.clickOnSubmitButton("Create");
 		
-		super.checkErrorsExist();		
+		super.checkErrorsExist();	
+		
+		super.signOut();
 	}
 	
 	
