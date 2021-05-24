@@ -128,8 +128,11 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
             moments.setTime(entity.getEndMoment());
             final LocalDateTime end = LocalDateTime.ofInstant(moments.toInstant(), ZoneId.systemDefault());
             
+            Long workload = 0L;
             final Long datediff = ChronoUnit.MINUTES.between(start, end);
-            Long workload = (long) entity.getWorkloadHours()*60;
+            if(entity.getWorkloadHours()!=null) {
+                workload = (long) entity.getWorkloadHours()*60;
+            }
             if(entity.getWorkloadFraction()!=null) {
                 workload+=entity.getWorkloadFraction();
             }
