@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class AdministratorConfigurationShowTest extends AcmePlannerTest {
 	
 	/* showPositive
-	 *   Caso positivo de mostrar la configuración.
+	 *   Caso positivo de mostrar la Configuration.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que se muestre la configuración, comprobando los atributos correctamente.
+	 *   Se espera que se muestre la Configuration, comprobando los atributos correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/administrator/configuration/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -31,9 +31,9 @@ public class AdministratorConfigurationShowTest extends AcmePlannerTest {
 	}
 	
 	/* showNegative
-	 *   Caso negativo de mostrar la configuración.
+	 *   Caso negativo de mostrar la Configuration.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado al intentar acceder a la configuración sin ser administrador.
+	 *   Se espera que se recoja el panic de acceso no autorizado al intentar acceder a la Configuration sin ser Administrator.
 	 * */
     @Test
     @Order(20)

@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerWorkplanListTest extends AcmePlannerTest {
 
 	/* listPositive
-	 *   Caso positivo de listar planes de trabajo como gerente autentificado.
+	 *   Caso positivo de listar Work Plans como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que los planes de trabajo se muestren correctamente y se comprueben los atributos.
+	 *   Se espera que los Work Plans se muestren correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -44,8 +44,8 @@ public class ManagerWorkplanListTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de acceso a la lista de planes de trabajo sin autentificarse.
-	 *   La restricción que se infringe es la de acceso no autorizado al ser un usuario anónimo el que intenta acceder.
+	 *   Caso negativo de acceso a la lista de Work Plans sin autentificarse.
+	 *   La restricción que se infringe es la de acceso no autorizado al ser un usuario Anonymous el que intenta acceder.
 	 *   Se espera que salte un panic de acceso no autorizado y que sea capturado.
 	 * */
 	@Test

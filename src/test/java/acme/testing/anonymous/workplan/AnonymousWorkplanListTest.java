@@ -11,10 +11,10 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousWorkplanListTest extends AcmePlannerTest {
 	
 	/* listPositive
-	 *   Caso positivo de listar planes de trabajo.
+	 *   Caso positivo de listar Work Plans.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que se muestre el listado, se comprueban los valores de las columnas y se navega al show, 
-	 *   	comprobando los atributos correctamente. Se comprueba la navegabilidad a las tareas asociadas de cada plan de trabajo
+	 *   	comprobando los atributos correctamente. Se comprueba la navegabilidad a las Tasks asociadas de cada Work Plan.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -44,9 +44,9 @@ public class AnonymousWorkplanListTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de listar planes de trabajos.
+	 *   Caso negativo de listar Work Plans.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar acceder al listado.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como Authenticated e intentar acceder al listado.
 	 * */
     @Test
     @Order(20)

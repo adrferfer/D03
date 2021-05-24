@@ -10,9 +10,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerTaskUpdateTest extends AcmePlannerTest {
 
 	/* updatePositive
-	 *   Caso positivo de actualizar una tarea como gerente autentificado.
+	 *   Caso positivo de actualizar una Task como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que la tarea se actualice correctamente y se comprueben los atributos.
+	 *   Se espera que la Task se actualice correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -60,12 +60,12 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	}
 	
 	/* updateNegative
-	 *   Caso negativo de actualizar una tarea con errores.
-	 *   Las restricciones que se infrinjen son fecha de fin anterior a la de inicio,
-	 *   carga de trabajo con valor negativo, spam, volver una tarea privada cuando esta
+	 *   Caso negativo de actualizar una Task con errores.
+	 *   Las restricciones que se infringen son fecha de fin anterior a la de inicio,
+	 *   carga de trabajo con valor negativo, spam, volver una Task privada cuando esta
 	 *   está contenida en un plan de trabajo público y un valor nulo de fracción de trabajo
 	 *   cuando la carga de trabajo tiene valor 0.
-	 *   Se espera que salten los mensajes de error, y que no se creen las tareas.
+	 *   Se espera que salten los mensajes de error, y que no se creen las Tasks.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)

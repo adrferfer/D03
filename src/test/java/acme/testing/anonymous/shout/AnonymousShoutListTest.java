@@ -11,7 +11,7 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousShoutListTest extends AcmePlannerTest {
 	
 	/* listPositive
-	 *   Caso positivo de listar gritos.
+	 *   Caso positivo de listar Shouts.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que se muestre el listado, se comprueban los valores de las columnas y se navega al show, 
 	 *   	comprobando los atributos correctamente.
@@ -35,9 +35,9 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de listar gritos.
+	 *   Caso negativo de listar Shouts.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar acceder al listado.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como Authenticated e intentar acceder al listado.
 	 * */
     @Test
     @Order(20)

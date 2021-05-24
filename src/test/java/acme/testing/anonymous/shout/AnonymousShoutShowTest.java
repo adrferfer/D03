@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousShoutShowTest extends AcmePlannerTest {
 	
 	/* showPositive
-	 *   Caso positivo de mostrar un grito.
+	 *   Caso positivo de mostrar un Shout.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que se muestre el grito, comprobando los atributos correctamente.
+	 *   Se espera que se muestre el Shout, comprobando los atributos correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -34,9 +34,9 @@ public class AnonymousShoutShowTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de mostrar un grito.
+	 *   Caso negativo de mostrar un Shout.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar hacer show.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como Authenticated e intentar hacer show.
 	 * */
     @Test
     @Order(20)

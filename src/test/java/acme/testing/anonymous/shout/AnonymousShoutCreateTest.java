@@ -10,10 +10,10 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousShoutCreateTest extends AcmePlannerTest {
 
 	/* createPositive
-	 *   Caso positivo de crear un grito.
+	 *   Casos positivos de crear Shouts.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que se realice el shout correctamente.
-	 * */
+	 *   Se espera que se creen los Shouts correctamente.
+	 **/
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -38,9 +38,9 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 	}
 	
 	/* createNegative
-	 *   Caso negativo de crear unos gritos.
+	 *   Casos negativos de crear Shouts.
 	 *   Las restricciones que se infringen son las de parámetros vacios, url errónea y spam.
-	 *   Se espera que salten los mensajes de error, y que no se creen los gritos.
+	 *   Se espera que aparezcan los mensajes de error, y que no se creen los gritos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)

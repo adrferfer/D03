@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousTaskShowTest extends AcmePlannerTest {
 	
 	/* showPositive
-	 *   Caso positivo de mostrar una tarea.
+	 *   Caso positivo de mostrar una Task.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que se muestre la tarea, comprobando los atributos correctamente.
+	 *   Se espera que se muestre la Task, comprobando los atributos correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/task/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -42,9 +42,9 @@ public class AnonymousTaskShowTest extends AcmePlannerTest {
 	}
 	
 	/* showNegative
-	 *   Caso negativo de mostrar una tarea.
+	 *   Caso negativo de mostrar una Task.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar hacer show.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como Authenticated e intentar hacer show.
 	 * */
     @Test
     @Order(20)

@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerTaskDeleteTest extends AcmePlannerTest {
 
 	/* deletePositive
-	 *   Caso positivo de borrar una tarea como gerente autentificado.
+	 *   Caso positivo de borrar una Task como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que la tarea se elimine correctamente.
+	 *   Se espera que la Task se elimine correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -65,8 +65,8 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest {
 	}
 	
 	/* deleteNegative
-	 *   Caso negativo de eliminar una tarea.
-	 *   La restricción que se infringe es intentar acceder a las task siendo anónimo
+	 *   Caso negativo de eliminar una Task.
+	 *   La restricción que se infringe es intentar acceder a las Task siendo Anonymous
 	 *   para borrarlas, siendo solo el propietario el que las puede borrar.
 	 *   Se espera que salte un error de acceso no permitido y que no se pueda acceder.
 	 * */

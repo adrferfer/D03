@@ -10,9 +10,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerWorkplanUpdateTest extends AcmePlannerTest {
 
 	/* updatePositive
-	 *   Caso positivo de actualizar un plan de trabajo como gerente autentificado.
+	 *   Caso positivo de actualizar un Work Plan como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que el plan de trabajo se actualice correctamente y se comprueben los atributos.
+	 *   Se espera que el Work Plan se actualice correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -45,13 +45,13 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest {
 	}
 	
 	/* updateNegative
-	 *   Caso negativo de actualizar un plan de trabajo como gerente autentificado.
+	 *   Caso negativo de actualizar un Work Plan como Manager autentificado.
 	 *   Restricciones infringidas:
-	 *   	- Añadir una tarea que no puede formar parte del plan de trabajo.
-	 *   	- Fecha executionPeriodEnd anterior que executionPeriodStart.
+	 *   	- Añadir una Task que no puede formar parte del Work Plan.
+	 *   	- Fecha executionPeriodEnd anterior a executionPeriodStart.
 	 *   	- Spam.
-	 *   	- Publicar un plan de trabajo con tareas en privado.
-	 *   	- Intentar añadir una tarea que no es propiedad del manager al plan de trabajo.
+	 *   	- Publicar un Work Plan con tareas en privado.
+	 *   	- Intentar añadir una Task que no es propiedad del Manager al Work Plan.
 	 *   Se espera que se capturen los errores y no se actualice el plan de trabajo.
 	 * */
 	@ParameterizedTest

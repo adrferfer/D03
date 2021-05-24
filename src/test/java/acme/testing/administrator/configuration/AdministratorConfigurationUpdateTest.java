@@ -10,9 +10,9 @@ import acme.testing.AcmePlannerTest;
 public class AdministratorConfigurationUpdateTest extends AcmePlannerTest {
 	
 	/* updatePositive
-	 *   Caso positivo de actualizar la configuración.
+	 *   Caso positivo de actualizar la Configuration.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que se muestre la configuración, se editen datos y se comprueba que los atributos han sido editados correctamente.
+	 *   Se espera que se muestre la Configuration y se editen datos, y se comprueba que los atributos han sido editados correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/administrator/configuration/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -38,11 +38,11 @@ public class AdministratorConfigurationUpdateTest extends AcmePlannerTest {
 	}
 	
 	/* updateNegative
-	 *   Caso negativo de actualizar la configuración.
+	 *   Caso negativo de actualizar la Configuration.
 	 *   Restricciones que se infringen:
 	 *   	- spamWordsES y spamWordsEN no deben ser vacios
 	 *   	- threshold debe estar entre 0 y 100
-	 *   Se espera que se muestre la configuración, se editen datos y se comprueba que los atributos han sido editados correctamente.
+	 *   Se espera que se muestre la Configuration y no se editen los datos al contener errores.
 	 * */
 	
 	@ParameterizedTest

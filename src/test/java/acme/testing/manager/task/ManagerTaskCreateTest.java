@@ -10,9 +10,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerTaskCreateTest extends AcmePlannerTest {
 
 	/* createPositive
-	 *   Caso positivo de crear una tarea como gerente autentificado.
+	 *   Caso positivo de crear una Task como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que la tarea se cree correctamente y se comprueben los atributos.
+	 *   Se espera que la Task se cree correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -59,7 +59,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 	}
 	
 	/* createNegative
-	 *   Caso negativo de crear una tarea con errores.
+	 *   Caso negativo de crear una Task con errores.
 	 *   Las restricciones que se infringen son fecha de fin anterior a la de inicio,
 	 *   carga de trabajo con valor negativo, spam y valor de carga de trabajo y fracción de trabajo vacíos.
 	 *   Se espera que salten los mensajes de error, y que no se creen las tareas.

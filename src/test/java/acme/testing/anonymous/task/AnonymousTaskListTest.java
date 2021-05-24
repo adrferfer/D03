@@ -11,7 +11,7 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousTaskListTest extends AcmePlannerTest {
 	
 	/* listPositive
-	 *   Caso positivo de listar tareas.
+	 *   Caso positivo de listar Tasks.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que se muestre el listado, se comprueban los valores de las columnas y se navega al show, 
 	 *   	comprobando los atributos correctamente.
@@ -43,9 +43,9 @@ public class AnonymousTaskListTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de listar tareas.
+	 *   Caso negativo de listar Tasks.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar acceder al listado.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como Authenticated e intentar acceder al listado.
 	 * */
     @Test
     @Order(20)

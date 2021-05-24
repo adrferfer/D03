@@ -11,7 +11,7 @@ import acme.testing.AcmePlannerTest;
 public class AuthenticatedTaskListTest extends AcmePlannerTest {
 
 	/* listPositive
-	 *   Caso positivo de listar tareas como usuario autentificado.
+	 *   Caso positivo de listar Tasks como Authenticated.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que las tareas se muesten correctamente y se comprueben los atributos.
 	 * */
@@ -45,8 +45,8 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de acceso a la lista de tareas sin autentificarse.
-	 *   La restricción que se infringe es la de acceso no autorizado al ser un usuario anónimo el que intenta acceder.
+	 *   Caso negativo de acceso a la lista de Tasks sin autentificarse.
+	 *   La restricción que se infringe es la de acceso no autorizado al ser un usuario Anonymous el que intenta acceder.
 	 *   Se espera que salte un panic de acceso no autorizado y que sea capturado.
 	 * */
 	@Test

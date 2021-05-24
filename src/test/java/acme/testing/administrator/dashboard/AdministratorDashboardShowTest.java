@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class AdministratorDashboardShowTest extends AcmePlannerTest {
 	
 	/* showPositive
-	 *   Caso positivo de mostrar el panel de indicadores.
+	 *   Caso positivo de mostrar el Dashboard.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que se muestre la el panel de indicadores, comprobando los atributos correctamente.
+	 *   Se espera que se muestre el Dashboard, comprobando los atributos correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/administrator/dashboard/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -60,9 +60,9 @@ public class AdministratorDashboardShowTest extends AcmePlannerTest {
 	}
 	
 	/* showNegative
-	 *   Caso negativo de mostrar el panel de indicadores.
+	 *   Caso negativo de mostrar el Dashboard.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado al intentar acceder al panel de indicadores sin ser administrador.
+	 *   Se espera que se recoja el panic de acceso no autorizado al intentar acceder al Dashboard sin ser Administrator.
 	 * */
     @Test
     @Order(20)

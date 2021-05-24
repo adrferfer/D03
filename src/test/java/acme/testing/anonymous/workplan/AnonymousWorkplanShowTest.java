@@ -11,10 +11,10 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousWorkplanShowTest extends AcmePlannerTest {
 	
 	/* showPositive
-	 *   Caso positivo de mostrar un plan de trabajo.
+	 *   Caso positivo de mostrar un Work Plan.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que se muestre el plan de trabajo, comprobando los atributos correctamente.
-	 *   Se comprueba la navegabilidad a las tareas asociadas al plan de trabajo
+	 *   Se comprueba la navegabilidad a las Tasks asociadas al Work Plan.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -44,9 +44,9 @@ public class AnonymousWorkplanShowTest extends AcmePlannerTest {
 	}
 	
 	/* showNegative
-	 *   Caso negativo de mostrar un plan de trabajo.
+	 *   Caso negativo de mostrar un Work Plan.
 	 *   Se infringe restricción de acceso no autorizado.
-	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como authenticated e intentar hacer show.
+	 *   Se espera que se recoja el panic de acceso no autorizado tras loguearnos como Authenticated e intentar hacer show.
 	 * */
     @Test
     @Order(20)

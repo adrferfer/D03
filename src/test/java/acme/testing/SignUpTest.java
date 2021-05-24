@@ -19,7 +19,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 public class SignUpTest extends AcmePlannerTest{
 
 	/* positiveSingUp
-	 *   Caso positivo de inscribir a varios usuarios nuevos al sistema correctamente y se inicia sesión con cada uno de ellos.
+	 *   Caso positivo de inscribir a varios usuarios nuevos al sistema correctamente e inicias sesión con cada uno de ellos.
 	 *   No se infringe ninguna restricción.
 	 *   Se espera que cada usuario se inscriba correctamente e inicie sesión.
 	 * */
@@ -35,7 +35,7 @@ public class SignUpTest extends AcmePlannerTest{
 	
 	/* negativeSingUp
 	 *   Caso negativo de inscribir a un usuario en el sistema.
-	 *   Las restricciones que se infringen son las de parámetros vacios y que no se han aceptado los términos.
+	 *   Las restricciones que se infringen son las de parámetros vacíos y que no se han aceptado los términos.
 	 *   Se espera que salten los mensajes de error, y que el usuario no se inscriba.
 	 * */
 	@ParameterizedTest

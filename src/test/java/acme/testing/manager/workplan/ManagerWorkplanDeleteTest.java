@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerWorkplanDeleteTest extends AcmePlannerTest {
 
 	/* deletePositive
-	 *   Caso positivo de borrar un plan de trabajo como gerente autentificado.
+	 *   Caso positivo de borrar un Work Plan como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que el plan de trabajo se elimine correctamente.
+	 *   Se espera que el Work Plan se elimine correctamente.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -48,8 +48,8 @@ public class ManagerWorkplanDeleteTest extends AcmePlannerTest {
 	}
 	
 	/* deleteNegative
-	 *   Caso negativo de eliminar un plan de trabajo.
-	 *   La restricción que se infringe es intentar acceder al plan de trabajo siendo anónimo
+	 *   Caso negativo de eliminar un Work Plan.
+	 *   La restricción que se infringe es intentar acceder al Work Plan siendo Anonymous
 	 *   para borrarlo, siendo solo el propietario el que lo puede borrar.
 	 *   Se espera que salte un error de acceso no permitido y que no se pueda acceder.
 	 * */
@@ -70,6 +70,5 @@ public class ManagerWorkplanDeleteTest extends AcmePlannerTest {
 		
 		super.checkPanicExists();		
 	}
-	
-	
+
 }

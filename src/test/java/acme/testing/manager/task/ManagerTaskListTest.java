@@ -11,9 +11,9 @@ import acme.testing.AcmePlannerTest;
 public class ManagerTaskListTest extends AcmePlannerTest {
 
 	/* listPositive
-	 *   Caso positivo de listar tareas como gerente autentificado.
+	 *   Caso positivo de listar Tasks como Manager autentificado.
 	 *   No se infringe ninguna restricción.
-	 *   Se espera que las tareas se muesten correctamente y se comprueben los atributos.
+	 *   Se espera que las Tasks se muesten correctamente y se comprueben los atributos.
 	 * */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -46,8 +46,8 @@ public class ManagerTaskListTest extends AcmePlannerTest {
 	}
 	
 	/* listNegative
-	 *   Caso negativo de acceso a la lista de tareas sin autentificarse.
-	 *   La restricción que se infringe es la de acceso no autorizado al ser un usuario anónimo el que intenta acceder.
+	 *   Caso negativo de acceso a la lista de Tasks sin autentificarse.
+	 *   La restricción que se infringe es la de acceso no autorizado al ser un usuario Anonymous el que intenta acceder.
 	 *   Se espera que salte un panic de acceso no autorizado y que sea capturado.
 	 * */
 	@Test
