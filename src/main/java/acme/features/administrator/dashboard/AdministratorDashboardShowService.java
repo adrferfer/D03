@@ -37,66 +37,102 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final int numberOfFinishedTasks = this.repository.numberOfFinishedTasks();
 		final int numberOfUnfinishedTasks = this.repository.numberOfUnfinishedTasks();
 
+		
 		final List<Object[]> taskPeriodsStats = new ArrayList<Object[]>(this.repository.taskPeriodsStats());
-		final int minimumTaskPeriods = (int) taskPeriodsStats.get(0)[0];
+		
+		int minimumTaskPeriods = 0;
+		int maximumTaskPeriods = 0;
+		double avgTaskPeriods = 0.0;
+		double stddevTaskPeriods = 0.0;
+		if(taskPeriodsStats.get(0)[0]!=null) {
+			minimumTaskPeriods = (int) taskPeriodsStats.get(0)[0];
+			maximumTaskPeriods = (int) taskPeriodsStats.get(0)[1];
+			avgTaskPeriods = (double) taskPeriodsStats.get(0)[2];
+			stddevTaskPeriods = (double) taskPeriodsStats.get(0)[3];
+		}
 		final String minTaskPeriodsDays = minimumTaskPeriods + "";
 		model.setAttribute("minTaskPeriodsDays", minTaskPeriodsDays);
-		final int maximumTaskPeriods = (int) taskPeriodsStats.get(0)[1];
 		final String maxTaskPeriodsDays = maximumTaskPeriods + "";
 		model.setAttribute("maxTaskPeriodsDays", maxTaskPeriodsDays);
-		final double avgTaskPeriods = (double) taskPeriodsStats.get(0)[2];
 		final String avgTaskPeriodsDays = String.format("%.0f", avgTaskPeriods);
 		model.setAttribute("avgTaskPeriodsDays", avgTaskPeriodsDays);
-		final double stddevTaskPeriods = (double) taskPeriodsStats.get(0)[3];
 		final String stddevTaskPeriodsDays = String.format("%.0f", stddevTaskPeriods);
-		model.setAttribute("stddevTaskPeriodsDays", stddevTaskPeriodsDays);
-
+		model.setAttribute("stddevTaskPeriodsDays", stddevTaskPeriodsDays);	
+		
+		
 		final List<Object[]> taskWorkloadsStats = new ArrayList<Object[]>(this.repository.taskWorkloadsStats());
-		final int minimumTaskWorkloads = (int) taskWorkloadsStats.get(0)[0];
+		
+		int minimumTaskWorkloads = 0;
+		int maximumTaskWorkloads = 0;
+		double avgTaskWorkloads = 0.0;
+		double stddevTaskWorkloads = 0.0;
+		if (taskWorkloadsStats.get(0)[0]!=null) {
+			minimumTaskWorkloads = (int) taskWorkloadsStats.get(0)[0];
+			maximumTaskWorkloads = (int) taskWorkloadsStats.get(0)[1];
+			avgTaskWorkloads = (double) taskWorkloadsStats.get(0)[2];
+			stddevTaskWorkloads = (double) taskWorkloadsStats.get(0)[3];
+			
+		}
 		final String minTaskWorkloadsHoursMinutes = String.format("%d h %d m", minimumTaskWorkloads/60, minimumTaskWorkloads%60);
 		model.setAttribute("minTaskWorkloadsHoursMinutes", minTaskWorkloadsHoursMinutes);
-		final int maximumTaskWorkloads = (int) taskWorkloadsStats.get(0)[1];
 		final String maxTaskWorkloadsHoursMinutes = String.format("%d h %d m", maximumTaskWorkloads/60, maximumTaskWorkloads%60);
 		model.setAttribute("maxTaskWorkloadsHoursMinutes", maxTaskWorkloadsHoursMinutes);
-		final double avgTaskWorkloads = (double) taskWorkloadsStats.get(0)[2];
 		final String avgTaskWorkloadsHoursMinutes = String.format("%.0f h %.0f m", avgTaskWorkloads/60, avgTaskWorkloads%60);
 		model.setAttribute("avgTaskWorkloadsHoursMinutes", avgTaskWorkloadsHoursMinutes);
-		final double stddevTaskWorkloads = (double) taskWorkloadsStats.get(0)[3];
 		final String stddevTaskWorkloadsHoursMinutes = String.format("%.0f h %.0f m", stddevTaskWorkloads/60, stddevTaskWorkloads%60);
 		model.setAttribute("stddevTaskWorkloadsHoursMinutes", stddevTaskWorkloadsHoursMinutes);
+		
 		
 		final int numberOfPrivateWorkPlans = this.repository.numberOfPrivateWorkPlans();
 		final int numberOfPublicWorkPlans = this.repository.numberOfPublicWorkPlans();
 		final int numberOfFinishedWorkPlans = this.repository.numberOfFinishedWorkPlans();
 		final int numberOfUnfinishedWorkPlans = this.repository.numberOfUnfinishedWorkPlans();
 		
+		
 		final List<Object[]> workPlanPeriodsStats = new ArrayList<Object[]>(this.repository.workPlanPeriodsStats());
-		final int minimumWorkPlanPeriods = (int) workPlanPeriodsStats.get(0)[0];
+		
+		int minimumWorkPlanPeriods = 0;
+		int maximumWorkPlanPeriods = 0;
+		double avgWorkPlanPeriods = 0.0;
+		double stddevWorkPlanPeriods = 0.0;
+		if(workPlanPeriodsStats.get(0)[0]!=null) {
+			minimumWorkPlanPeriods = (int) workPlanPeriodsStats.get(0)[0];
+			maximumWorkPlanPeriods = (int) workPlanPeriodsStats.get(0)[1];
+			avgWorkPlanPeriods = (double) workPlanPeriodsStats.get(0)[2];
+			stddevWorkPlanPeriods = (double) workPlanPeriodsStats.get(0)[3];
+		}
 		final String minWorkPlanPeriodsDays = minimumWorkPlanPeriods + "";
 		model.setAttribute("minWorkPlanPeriodsDays", minWorkPlanPeriodsDays);
-		final int maximumWorkPlanPeriods = (int) workPlanPeriodsStats.get(0)[1];
 		final String maxWorkPlanPeriodsDays = maximumWorkPlanPeriods + "";
 		model.setAttribute("maxWorkPlanPeriodsDays", maxWorkPlanPeriodsDays);
-		final double avgWorkPlanPeriods = (double) workPlanPeriodsStats.get(0)[2];
 		final String avgWorkPlanPeriodsDays = String.format("%.0f", avgWorkPlanPeriods);
 		model.setAttribute("avgWorkPlanPeriodsDays", avgWorkPlanPeriodsDays);
-		final double stddevWorkPlanPeriods = (double) workPlanPeriodsStats.get(0)[3];
 		final String stddevWorkPlanPeriodsDays = String.format("%.0f", stddevWorkPlanPeriods);
 		model.setAttribute("stddevWorkPlanPeriodsDays", stddevWorkPlanPeriodsDays);
 
+
 		final List<Object[]> workPlanWorkloadsStats = new ArrayList<Object[]>(this.repository.workPlanWorkloadsStats());
-		final int minimumWorkPlanWorkloads = (int) workPlanWorkloadsStats.get(0)[0];
+		
+		int minimumWorkPlanWorkloads = 0;
+		int maximumWorkPlanWorkloads = 0;
+		double avgWorkPlanWorkloads = 0.0;
+		double stddevWorkPlanWorkloads = 0.0;
+		if(workPlanWorkloadsStats.get(0)[0]!=null) {
+			minimumWorkPlanWorkloads = (int) workPlanWorkloadsStats.get(0)[0];
+			maximumWorkPlanWorkloads = (int) workPlanWorkloadsStats.get(0)[1];
+			avgWorkPlanWorkloads = (double) workPlanWorkloadsStats.get(0)[2];
+			stddevWorkPlanWorkloads = (double) workPlanWorkloadsStats.get(0)[3];
+			
+		}
 		final String minWorkPlanWorkloadsHoursMinutes = String.format("%d h %d m", minimumWorkPlanWorkloads/60, minimumWorkPlanWorkloads%60);
 		model.setAttribute("minWorkPlanWorkloadsHoursMinutes", minWorkPlanWorkloadsHoursMinutes);
-		final int maximumWorkPlanWorkloads = (int) workPlanWorkloadsStats.get(0)[1];
 		final String maxWorkPlanWorkloadsHoursMinutes = String.format("%d h %d m", maximumWorkPlanWorkloads/60, maximumWorkPlanWorkloads%60);
 		model.setAttribute("maxWorkPlanWorkloadsHoursMinutes", maxWorkPlanWorkloadsHoursMinutes);
-		final double avgWorkPlanWorkloads = (double) workPlanWorkloadsStats.get(0)[2];
 		final String avgWorkPlanWorkloadsHoursMinutes = String.format("%.0f h %.0f m", avgWorkPlanWorkloads/60, avgWorkPlanWorkloads%60);
 		model.setAttribute("avgWorkPlanWorkloadsHoursMinutes", avgWorkPlanWorkloadsHoursMinutes);
-		final double stddevWorkPlanWorkloads = (double) workPlanWorkloadsStats.get(0)[3];
 		final String stddevWorkPlanWorkloadsHoursMinutes = String.format("%.0f h %.0f m", stddevWorkPlanWorkloads/60, stddevWorkPlanWorkloads%60);
 		model.setAttribute("stddevWorkPlanWorkloadsHoursMinutes", stddevWorkPlanWorkloadsHoursMinutes);
+		
 		
 		final int numberOfWorkPlans = this.repository.numberOfWorkPlans();
 		final int numberOfPublishedWorkPlans = this.repository.numberOfPublishedWorkPlans();
