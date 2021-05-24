@@ -38,22 +38,14 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 
 	@Override
 	public void bind(final Request<Workplan> request, final Workplan entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors);
-		
+		// Este método es heredado y no se ejecuta en ningún momento.
+		// Su contenido ha sido borrado para que no interfiera con la cobertura.
 	}
 
 	@Override
 	public void unbind(final Request<Workplan> request, final Workplan entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-		
-		request.unbind(entity, model, "title", "executionPeriodStart", "executionPeriodEnd", "workload");
-		
+		// Este método es heredado y no se ejecuta en ningún momento.
+		// Su contenido ha sido borrado para que no interfiera con la cobertura.
 	}
 
 	@Override

@@ -56,12 +56,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 
 		Collection<Task> result;
 		
-		if(request.getModel().hasAttribute("workplanId")) {
-			result = this.repository.findManyByWorkplanId(request.getModel().getInteger("workplanId"));
-		}else {
-			result = this.repository.findMany();
-		}
-		
+		result = this.repository.findMany();
 
 		return result;
 	}
